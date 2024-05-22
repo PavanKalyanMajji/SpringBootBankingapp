@@ -14,6 +14,17 @@ RequestBody: -
     				"id":420
 			}
 *****************************************************************************
-getAccountHolder:- GET: localhost:8080/tcsbank/v1/api/getAccountHolder/112233
+getAccountHolder:- GET: localhost:8080/tcsbank/v1/api/getAccountHolder/{accountNo}
 
-*****************************************************************************			
+*****************************************************************************
+beleteByAccountNumber:- DELETE: localhost:8080/tcsbank/v1/api/{accountNo}
+
+******************************************************************************	
+
+creditAmount: - PUT: localhost:8080/tcsbank/v1/api/credit/{accountNo}/{amount}
+
+*******************************************************************************
+
+debitAmount: - PUT: localhost:8080/tcsbank/v1/api/debit/{accountNo}/{amount}
+
+*******************************************************************************

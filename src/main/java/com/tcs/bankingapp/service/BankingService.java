@@ -9,4 +9,6 @@ public interface BankingService {
 	 public BankAccountDto getAccountHolder(long accountNumber);
 	 public List<BankAccountDto> getAllAccountHolders();
 	 public Integer deleteByAccountNumber(long accountNumber);
+	 public BankAccountDto creditAmount(long accountNumber,double amount);
+	 public BankAccountDto debitAmount(long accountNumber,double amount);
 }

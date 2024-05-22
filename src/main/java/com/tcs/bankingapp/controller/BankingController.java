@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,5 +47,15 @@ public class BankingController {
 	@DeleteMapping("/{accountNo}")
 	public ResponseEntity<Integer> beleteByAccountNumber(@PathVariable("accountNo") long accountNumber){
 		return new ResponseEntity<Integer>(bankingService.deleteByAccountNumber(accountNumber),HttpStatus.OK);
+	}
+	
+	@PutMapping("/credit/{accountNo}/{amount}")
+	public ResponseEntity<BankAccountDto> creditAmount(@PathVariable("accountNo") long accountNo,@PathVariable("amount") double amount){
+		return new ResponseEntity<BankAccountDto>(bankingService.creditAmount(accountNo, amount),HttpStatus.OK);
+	}
+	
+	@PutMapping("/debit/{accountNo}/{amount}")
+	public ResponseEntity<BankAccountDto> debitAmount(@PathVariable("accountNo") long accountNo,@PathVariable("amount") double amount){
+		return new ResponseEntity<BankAccountDto>(bankingService.debitAmount(accountNo, amount),HttpStatus.OK);
 	}
 }
